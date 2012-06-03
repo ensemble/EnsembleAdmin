@@ -1,0 +1,29 @@
+{
+    "name": "slm-cmf/admin",
+    "description": "CMF Admin container for the SLM content management system",
+    "type": "library",
+    "license": "Unlicense",
+    "keywords": [
+        "cmf",
+        "zf2"
+    ],
+    "homepage": "https://github.com/juriansluiman/SlmCmfAdmin",
+    "authors": [
+        {
+            "name": "Jurian Sluiman",
+            "email": "jurian@juriansluiman.nl",
+            "homepage": "http://juriansluiman.nl/"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.3",
+        "zendframework/zendframework": "dev-master",
+        "doctrine/DoctrineORMModule": "dev-master",
+        "slm-cmf/kernel": "dev-master"
+    },
+    "autoload": {
+        "classmap": [
+            "./"
+        ]
+    }
+}
