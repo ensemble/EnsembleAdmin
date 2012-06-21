@@ -36,7 +36,7 @@ namespace SlmCmfAdmin\Controller;
 use Zend\Mvc\Controller\ActionController;
 use Zend\Mvc\MvcEvent;
 
-use SlmCmfAdmin\Service\Page as PageService;
+use SlmCmfKernel\Service\Page as PageService;
 use Zend\Http\PhpEnvironment\Request;
 use Zend\Mvc\Router\RouteMatch;
 
@@ -52,29 +52,14 @@ use SlmCmfAdmin\Exception;
 class PageController extends ActionController
 {
     /**
-     * @var Page
+     * @var PageService
      */
     protected $service;
     
-    public function __construct (PageService $service)
-    {
-        $this->service = $service;
-    }
-    
     public function openAction ()
     {
-        $routeMatch = $this->event->getRouteMatch();
-        $pageId     = $routeMatch->getParam('id');
-        $page       = $this->service->getPage($pageId);
-        
-        if (null === $page) {
-            throw new Exception\PageNotFoundException(sprintf(
-                'Cannot open page with id %s',
-                $pageId
-            ));
-        }
-        
-        $params  = '/' . trim($routeMatch->getParam('params', ''), '/');
+        $page    = $this->getPage();
+        $params  = '/' . trim($this->params('params', ''), '/');
         $request = new Request;
         $request->uri()->setPath($params);
         
@@ -105,5 +90,30 @@ class PageController extends ActionController
     
     public function deleteAction ()
     {
+    }
+    
+    protected function getService()
+    {
+        if (null === $this->service) {
+            $this->service = $this->getServiceLocator()->get('SlmCmfKernel\Page\Service');
+        }
+        
+        return $this->service;
+    }
+    
+    protected function getPage()
+    {
+        $routeMatch = $this->event->getRouteMatch();
+        $pageId     = $routeMatch->getParam('id');
+        $page       = $this->getService()->getPage($pageId);
+        
+        if (null === $page) {
+            throw new Exception\PageNotFoundException(sprintf(
+                'Cannot open page with id %s',
+                $pageId
+            ));
+        }
+        
+        return $page;
     }
 }

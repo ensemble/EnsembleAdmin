@@ -33,20 +33,4 @@ return array(
             __DIR__ . '/../view'
         ),
     ),
-    
-    'di' => array(
-        'instance' => array(
-            'SlmCmfAdmin\Controller\PageController' => array(
-                'parameters' => array(
-                    'service' => 'SlmCmfAdmin\Service\Page'
-                ),
-            ),
-            
-            'SlmCmfAdmin\Service\Page' => array(
-                'parameters' => array(
-                    'em' => 'doctrine_em'
-                ),
-            ),
-        ),
-    ),
 );
