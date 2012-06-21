@@ -95,7 +95,7 @@ class PageController extends ActionController
     protected function getService()
     {
         if (null === $this->service) {
-            $this->service = $this->getServiceLocator()->get('SlmCmfKernel\Page\Service');
+            $this->service = $this->getServiceLocator()->get('SlmCmfKernel\Service\Page');
         }
         
         return $this->service;
@@ -103,9 +103,8 @@ class PageController extends ActionController
     
     protected function getPage()
     {
-        $routeMatch = $this->event->getRouteMatch();
-        $pageId     = $routeMatch->getParam('id');
-        $page       = $this->getService()->getPage($pageId);
+        $pageId     = $this->params('id');
+        $page       = $this->getService()->find($pageId);
         
         if (null === $page) {
             throw new Exception\PageNotFoundException(sprintf(
