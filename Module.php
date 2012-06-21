@@ -4,7 +4,9 @@ namespace SlmCmfAdmin;
 
 use Zend\ModuleManager\Feature;
 use Zend\EventManager\Event;
+
 use SlmCmfAdmin\Router\AdminRouter;
+use SlmCmfAdmin\View\Helper;
 
 class Module implements
     Feature\AutoloaderProviderInterface,
@@ -36,7 +38,15 @@ class Module implements
                     
                     $router = new AdminRouter($routes);
                     return $router;
-                }
+                },
+                'SlmCmfAdmin\View\Helper\PageTree' => function ($sm) {
+                    $service = $sm->get('SlmCmfKernel\Service\Page');
+                    
+                    $helper = new Helper\PageTree;
+                    $helper->setPageService($service);
+                    
+                    return $helper;
+                },
             ),
         );
     }

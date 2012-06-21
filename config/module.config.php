@@ -35,5 +35,9 @@ return array(
         'template_path_stack' => array(
             __DIR__ . '/../view'
         ),
+        'helper_map' => array(
+            'slug' => 'SlmCmfUtils\View\Helper\Slug',
+            'url'  => 'SlmCmfUtils\View\Helper\Url',
+        ),
     ),
 );
