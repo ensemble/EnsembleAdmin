@@ -14,14 +14,13 @@ return array(
                 'may_terminate' => true,
                 'child_routes' => array(
                     'page-open' => array(
-                        'type' => 'SlmCmfAdmin\Router\Http\Regex',
+                        'type' => 'SlmCmfAdmin\Router\Http\Segment',
                         'options' => array(
-                            'regex' => '/page/open/(?<id>[0-9]+)(\/(?<params>(.*)))?',
+                            'route' => '/page/open/:id[/:params]',
                             'defaults' => array(
                                 'controller' => 'SlmCmfAdmin\Controller\PageController',
                                 'action' => 'open'
                             ),
-                            'spec' => '/blog/%id%/%params%',
                         ),
                     ),
                 ),
