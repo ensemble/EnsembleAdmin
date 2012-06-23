@@ -48,12 +48,10 @@ echo $this->doctype();
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="/">Admin interface</a>
+          <a class="brand" href="<?= $this->url('admin')?>">Admin interface</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="/">Home</a></li>
-              <li><a href="/about">About</a></li>
-              <li><a href="/admin">Admin</a></li>
+              <li class="active"><a href="/">Back to home</a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -64,22 +62,21 @@ echo $this->doctype();
     <div class="row-fluid">
 
       <div class="span3">
-      <div class="well sidebar-nav">
-        <?php echo $this->adminPageTree(); ?>
-      </div>
+        <div class="well sidebar-nav">
+            <?php echo $this->adminPageTree(); ?>
+        </div>
       </div>
         
       <div class="span9">
         <?php echo $this->content; ?>
       </div>
 
-      <hr>
-
-      <footer>
-        <p>&copy; 2006 - 2012 by Zend Technologies Ltd. All rights reserved.</p>
-      </footer>
-
     </div>
+        
+    <hr>
+    <footer>
+      <p>&copy; 2006 - 2012 by Zend Technologies Ltd. All rights reserved.</p>
+    </footer>
     </div> <!--/.fluid-container-->
 
   </body>
