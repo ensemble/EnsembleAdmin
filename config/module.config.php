@@ -13,13 +13,59 @@ return array(
                 ),
                 'may_terminate' => true,
                 'child_routes' => array(
-                    'page-open' => array(
-                        'type' => 'SlmCmfAdmin\Router\Http\Segment',
+                    'page' => array(
+                        'type' => 'literal',
                         'options' => array(
-                            'route' => '/page/open/:id[/:params]',
+                            'route' => '/page',
                             'defaults' => array(
                                 'controller' => 'SlmCmfAdmin\Controller\PageController',
-                                'action' => 'open'
+                            ),
+                        ),
+                        'child_routes' => array(
+                            'open' => array(
+                                'type' => 'segment',
+                                'options' => array(
+                                    'route' => '/open/:id',
+                                    'defaults' => array(
+                                        'action' => 'open'
+                                    ),
+                                ),
+                                'may_terminate' => true,
+                                'child_routes' => array(
+                                    'params' => array(
+                                        'type' => 'SlmCmfAdmin\Router\Http\CatchAll',
+                                        'options' => array(
+                                            'name' => 'params'
+                                        ),
+                                    ),
+                                ),
+                            ),
+                            'update' => array(
+                                'type' => 'segment',
+                                'options' => array(
+                                    'route' => '/edit/:id',
+                                    'defaults' => array(
+                                        'action' => 'update'
+                                    ),
+                                ),
+                            ),
+                            'create' => array(
+                                'type' => 'literal',
+                                'options' => array(
+                                    'route' => '/new',
+                                    'defaults' => array(
+                                        'action' => 'create'
+                                    ),
+                                ),
+                            ),
+                             'delete' => array(
+                                'type' => 'segment',
+                                'options' => array(
+                                    'route' => '/delete/:id',
+                                    'defaults' => array(
+                                        'action' => 'delete'
+                                    ),
+                                ),
                             ),
                         ),
                     ),
@@ -37,6 +83,7 @@ return array(
         ),
         'helper_map' => array(
             'adminPageTree' => 'SlmCmfAdmin\View\Helper\PageTree',
+            'adminUrl'      => 'SlmCmfAdmin\View\Helper\AdminUrl',
         ),
     ),
 );
