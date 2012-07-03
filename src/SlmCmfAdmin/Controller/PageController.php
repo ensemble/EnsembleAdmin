@@ -42,6 +42,7 @@
 namespace SlmCmfAdmin\Controller;
 
 use Zend\Mvc\Controller\ActionController;
+use Zend\View\Model\ViewModel;
 use Zend\Mvc\MvcEvent;
 
 use SlmCmfKernel\Service\Page as PageService;
@@ -72,8 +73,18 @@ class PageController extends ActionController
         $request->uri()->setPath($params);
 
         $router     = $this->getServiceLocator()->get('slmCmfAdminRouter');
-        $routeMatch = $router->setModule($page->getModule())
-                             ->match($request);
+
+        try {
+            // If the module has not registered a route, we get a RouteNotFoundException
+            // It means this page is not accessible through the admin, so render a message for that
+
+            $routeMatch = $router->setModule($page->getModule())
+                                 ->match($request);
+        } catch (Exception\RouteNotFoundException $e) {
+            return new ViewModel(array(
+                'page' => $page
+            ));
+        }
 
         if (!$routeMatch instanceof RouteMatch) {
             throw new Exception\RouteMatchNotFoundException(sprintf(
