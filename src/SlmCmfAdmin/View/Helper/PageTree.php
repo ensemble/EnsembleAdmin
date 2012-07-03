@@ -63,6 +63,11 @@ class PageTree extends AbstractHelper
 
     public function __invoke()
     {
+        return $this;
+    }
+
+    public function __toString()
+    {
         $pages = $this->service->getTree();
         $html  = $this->parseCollection($pages);
 
