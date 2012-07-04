@@ -1,4 +1,4 @@
-<?php 
+<?php
 $this->headTitle()->setSeparator(' - ')
                   ->setAutoEscape(false);
 
@@ -16,7 +16,7 @@ $this->headLink(array(
 $this->headScript()->appendFile('http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js');
 
 // HTML5 shim, for IE6-8 support of HTML elements
-$this->headScript()->appendFile($basePath . '/js/html5.js', 'text/javascript', 
+$this->headScript()->appendFile($basePath . '/js/html5.js', 'text/javascript',
     array('conditional' => 'lt IE9',));
 
 echo $this->doctype();
@@ -25,20 +25,20 @@ echo $this->doctype();
 <html lang="nl">
   <head>
     <meta charset="utf-8">
-    <?php echo $this->headTitle('ZF2 Skeleton Application') ?>
+    <?php echo $this->headTitle('Ensemble admin') ?>
 
     <?php echo $this->headMeta()->appendName('viewport', 'width=device-width, initial-scale=1.0') ?>
 
     <!-- Le styles -->
     <?php echo $this->headLink() ?>
-    
+
     <!-- Scripts -->
     <?php echo $this->headScript() ?>
 
   </head>
 
   <body>
-      
+
     <div class="navbar navbar-fixed-top">
       <div class="navbar-inner">
         <div class="container">
@@ -66,17 +66,17 @@ echo $this->doctype();
             <?php echo $this->adminPageTree(); ?>
         </div>
       </div>
-        
+
       <div class="span9">
         <?php echo $this->content; ?>
       </div>
 
     </div>
-        
+
     <hr>
     <footer>
-      <p>&copy; 2006 - 2012 by Zend Technologies Ltd. All rights reserved.</p>
-    </footer>
+        <p>Ensemble is an open source product. You can find out more about ensemble at <a href="http://ensemble.github.com">ensemble.github.com</a>.</p>
+      </footer>
     </div> <!--/.fluid-container-->
 
   </body>
