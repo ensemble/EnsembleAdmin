@@ -39,7 +39,7 @@
  * @link        http://ensemble.github.com
  */
 
-namespace SlmCmfAdmin\Router\Http;
+namespace Ensemble\Admin\Router\Http;
 
 use Zend\Mvc\Router\Http\RouteInterface;
 use Zend\Stdlib\RequestInterface as Request;
@@ -49,7 +49,7 @@ use Zend\Mvc\Router\Exception;
 /**
  * Description of CatchAll
  *
- * @package    SlmCmfAdmin
+ * @package    Ensemble\Admin
  * @subpackage Router
  * @author     Jurian Sluiman <jurian@soflomo.com>
  */

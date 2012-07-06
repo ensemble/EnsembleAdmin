@@ -39,14 +39,14 @@
  * @link        http://ensemble.github.com
  */
 
-namespace SlmCmfAdmin\Controller;
+namespace Ensemble\Admin\Controller;
 
 use Zend\Mvc\Controller\ActionController;
 
 /**
  * AdminController
  *
- * @package    SlmCmfAdmin
+ * @package    Ensemble\Admin
  * @subpackage Controller
  * @author     Jurian Sluiman <jurian@soflomo.com>
  */

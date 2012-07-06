@@ -39,10 +39,10 @@
  * @link        http://ensemble.github.com
  */
 
-namespace SlmCmfAdmin\View\Helper;
+namespace Ensemble\Admin\View\Helper;
 
 use Zend\View\Helper\Url;
-use SlmCmfAdmin\Router\AdminRouter;
+use Ensemble\Admin\Router\AdminRouter;
 use Zend\Mvc\Router\RouteMatch;
 
 use Zend\View\Exception;
@@ -58,7 +58,7 @@ use Zend\View\Exception;
  * special module Foo with a subroute "view-article", the route name /view-article
  * will be transformed to $id/view-article to match the appropriate page.
  *
- * @package    SlmCmfUtils
+ * @package    Ensemble\Admin
  * @subpackage View
  * @author     Jurian Sluiman <jurian@soflomo.com>
  */

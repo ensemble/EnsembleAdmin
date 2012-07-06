@@ -39,12 +39,12 @@
  * @link        http://ensemble.github.com
  */
 
-namespace SlmCmfAdmin\View\Helper;
+namespace Ensemble\Admin\View\Helper;
 
 use Zend\View\Helper\AbstractHelper;
-use SlmCmfKernel\Service\PageInterface as PageService;
-use SlmCmfKernel\Model\PageInterface;
-use SlmCmfKernel\Model\PageCollectionInterface;
+use Ensemble\Kernel\Service\PageInterface as PageService;
+use Ensemble\Kernel\Model\PageInterface;
+use Ensemble\Kernel\Model\PageCollectionInterface;
 
 /**
  * Description of PageTree

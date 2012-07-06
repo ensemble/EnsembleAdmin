@@ -39,12 +39,12 @@
  * @link        http://ensemble.github.com
  */
 
-namespace SlmCmfAdmin\Router;
+namespace Ensemble\Admin\Router;
 
 use Zend\Mvc\Router\Http\TreeRouteStack;
 use Zend\Stdlib\RequestInterface as Request;
 
-use SlmCmfAdmin\Exception\RouteNotFoundException;
+use Ensemble\Admin\Exception\RouteNotFoundException;
 
 class AdminRouter extends TreeRouteStack
 {

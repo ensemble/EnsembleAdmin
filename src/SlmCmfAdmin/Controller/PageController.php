@@ -39,22 +39,22 @@
  * @link        http://ensemble.github.com
  */
 
-namespace SlmCmfAdmin\Controller;
+namespace Ensemble\Admin\Controller;
 
 use Zend\Mvc\Controller\ActionController;
 use Zend\View\Model\ViewModel;
 use Zend\Mvc\MvcEvent;
 
-use SlmCmfKernel\Service\Page as PageService;
+use Ensemble\Kernel\Service\Page as PageService;
 use Zend\Http\PhpEnvironment\Request;
 use Zend\Mvc\Router\RouteMatch;
 
-use SlmCmfAdmin\Exception;
+use Ensemble\Admin\Exception;
 
 /**
  * PageController
  *
- * @package    SlmCmfAdmin
+ * @package    Ensemble\Admin
  * @subpackage Controller
  * @author     Jurian Sluiman <jurian@soflomo.com>
  */
@@ -72,7 +72,7 @@ class PageController extends ActionController
         $request = new Request;
         $request->uri()->setPath($params);
 
-        $router     = $this->getServiceLocator()->get('slmCmfAdminRouter');
+        $router     = $this->getServiceLocator()->get('Ensemble\Admin\Router\AdminRouter');
 
         try {
             // If the module has not registered a route, we get a RouteNotFoundException
@@ -125,7 +125,7 @@ class PageController extends ActionController
     protected function getService()
     {
         if (null === $this->service) {
-            $this->service = $this->getServiceLocator()->get('SlmCmfKernel\Service\Page');
+            $this->service = $this->getServiceLocator()->get('Ensemble\Kernel\Service\Page');
         }
 
         return $this->service;

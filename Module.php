@@ -39,13 +39,13 @@
  * @link        http://ensemble.github.com
  */
 
-namespace SlmCmfAdmin;
+namespace Ensemble\Admin;
 
 use Zend\ModuleManager\Feature;
 use Zend\EventManager\Event;
 
-use SlmCmfAdmin\Router\AdminRouter;
-use SlmCmfAdmin\View\Helper;
+use Ensemble\Admin\Router\AdminRouter;
+use Ensemble\Admin\View\Helper;
 
 class Module implements
     Feature\AutoloaderProviderInterface,
@@ -71,15 +71,15 @@ class Module implements
     {
         return array(
             'factories' => array(
-                'slmCmfAdminRouter' => function ($sm) {
+                'Ensemble\Admin\Router\AdminRouter' => function ($sm) {
                     $config = $sm->get('config');
                     $routes = $config['cmf_admin_routes'];
 
                     $router = new AdminRouter($routes);
                     return $router;
                 },
-                'SlmCmfAdmin\View\Helper\PageTree' => function ($sm) {
-                    $service = $sm->get('SlmCmfKernel\Service\Page');
+                'Ensemble\Admin\View\Helper\PageTree' => function ($sm) {
+                    $service = $sm->get('Ensemble\Kernel\Service\Page');
 
                     $helper = new Helper\PageTree;
                     $helper->setPageService($service);

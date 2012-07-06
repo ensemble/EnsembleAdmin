@@ -39,7 +39,7 @@
  * @link        http://ensemble.github.com
  */
 
-namespace SlmCmfAdmin\Exception;
+namespace Ensemble\Admin\Exception;
 
 class RouteMatchNotFoundException extends \RuntimeException
 {

@@ -47,7 +47,7 @@ return array(
                 'options' => array(
                     'route'    => '/admin',
                     'defaults' => array(
-                        'controller' => 'SlmCmfAdmin\Controller\AdminController',
+                        'controller' => 'Ensemble\Admin\Controller\AdminController',
                         'action'     => 'index',
                     ),
                 ),
@@ -58,7 +58,7 @@ return array(
                         'options' => array(
                             'route' => '/page',
                             'defaults' => array(
-                                'controller' => 'SlmCmfAdmin\Controller\PageController',
+                                'controller' => 'Ensemble\Admin\Controller\PageController',
                             ),
                         ),
                         'child_routes' => array(
@@ -73,7 +73,7 @@ return array(
                                 'may_terminate' => true,
                                 'child_routes' => array(
                                     'params' => array(
-                                        'type' => 'SlmCmfAdmin\Router\Http\CatchAll',
+                                        'type' => 'Ensemble\Admin\Router\Http\CatchAll',
                                         'options' => array(
                                             'name' => 'params'
                                         ),
@@ -122,8 +122,8 @@ return array(
             __DIR__ . '/../view'
         ),
         'helper_map' => array(
-            'adminPageTree' => 'SlmCmfAdmin\View\Helper\PageTree',
-            'adminUrl'      => 'SlmCmfAdmin\View\Helper\AdminUrl',
+            'adminPageTree' => 'Ensemble\Admin\View\Helper\PageTree',
+            'adminUrl'      => 'Ensemble\Admin\View\Helper\AdminUrl',
         ),
     ),
 );
