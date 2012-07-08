@@ -114,16 +114,21 @@ return array(
         ),
     ),
 
+    'view_helpers' => array(
+        'aliases' => array(
+            'adminPageTree' => 'Ensemble\Admin\View\Helper\PageTree',
+        ),
+        'invokables' => array(
+            'adminUrl'      => 'Ensemble\Admin\View\Helper\AdminUrl',
+        ),
+    ),
+
     'view_manager' => array(
         'template_map' => array(
             'layout/admin' => __DIR__ . '/../view/layout/admin.phtml',
         ),
         'template_path_stack' => array(
             __DIR__ . '/../view'
-        ),
-        'helper_map' => array(
-            'adminPageTree' => 'Ensemble\Admin\View\Helper\PageTree',
-            'adminUrl'      => 'Ensemble\Admin\View\Helper\AdminUrl',
         ),
     ),
 );
