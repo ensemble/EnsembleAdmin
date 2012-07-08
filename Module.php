@@ -43,9 +43,10 @@ namespace Ensemble\Admin;
 
 use Zend\ModuleManager\Feature;
 use Zend\EventManager\Event;
+use Zend\Mvc\MvcEvent;
 
-use Ensemble\Admin\Router\AdminRouter;
-use Ensemble\Admin\View\Helper;
+use Ensemble\Admin\View\InjectTemplateListener;
+use Ensemble\Admin\View\Helper as ViewHelper;
 
 class Module implements
     Feature\AutoloaderProviderInterface,
@@ -61,7 +62,7 @@ class Module implements
             ),
             'Zend\Loader\StandardAutoloader' => array(
                 'namespaces' => array(
-                    __NAMESPACE__ => __DIR__ . '/src/' . __NAMESPACE__,
+                    __NAMESPACE__ => __DIR__ . '/src/Admin',
                 ),
             ),
         );
@@ -69,25 +70,12 @@ class Module implements
 
     public function getServiceConfiguration()
     {
-        return array(
-            'factories' => array(
-                'Ensemble\Admin\Router\AdminRouter' => function ($sm) {
-                    $config = $sm->get('config');
-                    $routes = $config['cmf_admin_routes'];
+        return include __DIR__ . '/config/services.config.php';
+    }
 
-                    $router = new AdminRouter($routes);
-                    return $router;
-                },
-                'Ensemble\Admin\View\Helper\PageTree' => function ($sm) {
-                    $service = $sm->get('Ensemble\Kernel\Service\Page');
-
-                    $helper = new Helper\PageTree;
-                    $helper->setPageService($service);
-
-                    return $helper;
-                },
-            ),
-        );
+    public function getViewHelperConfiguration()
+    {
+        return include __DIR__ . '/config/services.config.php';
     }
 
     public function getConfig()
@@ -98,11 +86,17 @@ class Module implements
     public function onBootstrap(Event $e)
     {
         $app = $e->getParam('application');
-        $em  = $app->events()->getSharedManager();
+        $em  = $app->getEventManager()->getSharedManager();
 
-        $em->attach(__NAMESPACE__, 'dispatch', function($e) {
+        // Use the admin layout
+        $em->attach('Ensemble', MvcEvent::EVENT_DISPATCH, function($e) {
             $controller = $e->getTarget();
             $controller->layout('layout/admin');
         }, 100);
+
+        // For all pages rendered by Ensemble\Admin, use ensemble-admin as template directory
+        // The default injectTemplateListener registers at -90, so be earlier and register at -80
+        $injectTemplateListener = new InjectTemplateListener;
+        $em->attach('Ensemble', MvcEvent::EVENT_DISPATCH, array($injectTemplateListener, 'injectTemplate'), -80);
     }
 }
