@@ -2,7 +2,7 @@
     "name": "ensemble/admin",
     "description": "Admin container for the ensemble content management system",
     "type": "library",
-    "license": "Unlicense",
+    "license": "new-bsd",
     "keywords": [
         "cmf",
         "zf2"
