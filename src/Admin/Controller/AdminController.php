@@ -41,7 +41,7 @@
 
 namespace Ensemble\Admin\Controller;
 
-use Zend\Mvc\Controller\ActionController;
+use Zend\Mvc\Controller\AbstractActionController;
 
 /**
  * AdminController
@@ -50,7 +50,7 @@ use Zend\Mvc\Controller\ActionController;
  * @subpackage Controller
  * @author     Jurian Sluiman <jurian@soflomo.com>
  */
-class AdminController extends ActionController
+class AdminController extends AbstractActionController
 {
     public function indexAction ()
     {

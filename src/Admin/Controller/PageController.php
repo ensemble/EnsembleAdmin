@@ -41,7 +41,7 @@
 
 namespace Ensemble\Admin\Controller;
 
-use Zend\Mvc\Controller\ActionController;
+use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Zend\Mvc\MvcEvent;
 
@@ -58,7 +58,7 @@ use Ensemble\Admin\Exception;
  * @subpackage Controller
  * @author     Jurian Sluiman <jurian@soflomo.com>
  */
-class PageController extends ActionController
+class PageController extends AbstractActionController
 {
     /**
      * @var PageService
@@ -70,7 +70,7 @@ class PageController extends ActionController
         $page    = $this->getPage();
         $params  = '/' . trim($this->params('params', ''), '/');
         $request = new Request;
-        $request->uri()->setPath($params);
+        $request->getUri()->setPath($params);
 
         $router     = $this->getServiceLocator()->get('Ensemble\Admin\Router\AdminRouter');
 
