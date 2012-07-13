@@ -42,7 +42,7 @@
 namespace Ensemble\Admin;
 
 use Zend\ModuleManager\Feature;
-use Zend\EventManager\Event;
+use Zend\EventManager\EventInterface;
 use Zend\Mvc\MvcEvent;
 
 use Ensemble\Admin\View\InjectTemplateListener;
@@ -83,7 +83,7 @@ class Module implements
         return include __DIR__ . '/config/module.config.php';
     }
 
-    public function onBootstrap(Event $e)
+    public function onBootstrap(EventInterface $e)
     {
         $app = $e->getParam('application');
         $em  = $app->getEventManager()->getSharedManager();
