@@ -131,4 +131,11 @@ return array(
             __DIR__ . '/../view'
         ),
     ),
+
+    'controllers' => array(
+        'invokables' => array(
+            'Ensemble\Admin\Controller\AdminController' => 'Ensemble\Admin\Controller\AdminController',
+            'Ensemble\Admin\Controller\PageController' => 'Ensemble\Admin\Controller\PageController',
+        ),
+    ),
 );
