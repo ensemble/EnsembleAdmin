@@ -68,12 +68,12 @@ class Module implements
         );
     }
 
-    public function getServiceConfiguration()
+    public function getServiceConfig()
     {
         return include __DIR__ . '/config/services.config.php';
     }
 
-    public function getViewHelperConfiguration()
+    public function getViewHelperConfig()
     {
         return include __DIR__ . '/config/services.config.php';
     }
