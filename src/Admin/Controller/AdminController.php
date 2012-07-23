@@ -42,6 +42,7 @@
 namespace Ensemble\Admin\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
+use Zend\EventManager\EventManagerInterface;
 
 /**
  * AdminController
@@ -55,4 +56,10 @@ class AdminController extends AbstractActionController
     public function indexAction ()
     {
     }
+
+	public function setEventManager(EventManagerInterface $events)
+	{
+		parent::setEventManager();
+		$this->getEventManager()->addIdentifiers('Ensemble\Admin');
+	}
 }
