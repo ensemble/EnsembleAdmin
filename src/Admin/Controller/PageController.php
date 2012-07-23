@@ -148,7 +148,8 @@ class PageController extends AbstractActionController
 
     public function setEventManager(EventManagerInterface $events)
     {
-        parent::setEventManager();
+        parent::setEventManager($events);
         $this->getEventManager()->addIdentifiers('Ensemble\Admin');
+        return $this;
     }
 }
