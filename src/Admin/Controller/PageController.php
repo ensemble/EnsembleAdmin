@@ -42,6 +42,7 @@
 namespace Ensemble\Admin\Controller;
 
 use Zend\Mvc\Controller\AbstractActionController;
+use Zend\EventManager\EventManagerInterface;
 use Zend\View\Model\ViewModel;
 use Zend\Mvc\MvcEvent;
 
