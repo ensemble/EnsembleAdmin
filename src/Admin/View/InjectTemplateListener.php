@@ -21,7 +21,7 @@
 
 namespace Ensemble\Admin\View;
 
-use Zend\Mvc\View\InjectTemplateListener as BaseListener;
+use Zend\Mvc\View\Http\InjectTemplateListener as BaseListener;
 use Zend\EventManager\EventManagerInterface as Events;
 use Zend\Filter;
 use Zend\Mvc\MvcEvent;
