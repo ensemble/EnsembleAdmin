@@ -95,7 +95,7 @@ class AdminRouter extends TreeRouteStack
             ));
         }
 
-        $route = $this->moduleRoutes[$module];
-        $this->addRoute($module, $route);
+        $routes = $this->moduleRoutes[$module];
+        $this->addRoutes($routes);
     }
 }
