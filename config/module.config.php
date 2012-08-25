@@ -114,6 +114,15 @@ return array(
         ),
     ),
 
+    'navigation' => array(
+        'admin' => array(
+            array(
+                'label' => 'Back to home',
+                'uri'   => '/'
+            ),
+        ),
+    ),
+
     'view_helpers' => array(
         'aliases' => array(
             'adminPageTree' => 'Ensemble\Admin\View\Helper\PageTree',
