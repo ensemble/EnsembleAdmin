@@ -44,6 +44,8 @@ use Ensemble\Admin\View\Helper as ViewHelper;
 
 return array(
     'factories' => array(
+        'admin_navigation' => 'Ensemble\Admin\Navigation\Service\AdminNavigationFactory',
+
         'Ensemble\Admin\Router\AdminRouter' => function ($sm) {
             $config = $sm->get('config');
             $routes = $config['cmf_admin_routes'];
