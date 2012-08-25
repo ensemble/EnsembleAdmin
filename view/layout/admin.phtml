@@ -50,9 +50,10 @@ echo $this->doctype();
           </a>
           <a class="brand" href="<?= $this->url('admin')?>">Admin interface</a>
           <div class="nav-collapse">
-            <ul class="nav">
-              <li><a href="/">Back to home</a></li>
-            </ul>
+            <?= $this->navigation('admin_navigation')->menu()
+                                   ->setUlClass('nav')
+                                   ->setMaxDepth(0)
+                                   ->setRenderInvisible(false)?>?>
           </div><!--/.nav-collapse -->
         </div>
       </div>
