@@ -115,7 +115,7 @@ class AdminUrl extends Url
      * @throws Exception\RuntimeException  If no RouteMatch was provided
      * @throws Exception\RuntimeException  If RouteMatch didn't contain a matched route name
      */
-    public function __invoke($name = null, array $params = array(), array $options = array(), $reuseMatchedParams = false)
+    public function __invoke($name = null, array $params = array(), $options = array(), $reuseMatchedParams = false)
     {
         if (null === $this->adminRouter) {
             throw new Exception\RuntimeException('No AdminRouter instance provided');
