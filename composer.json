@@ -2,7 +2,7 @@
     "name": "ensemble/admin",
     "description": "Admin container for the ensemble content management system",
     "type": "library",
-    "license": "new-bsd",
+    "license": "BSD-3-Clause",
     "keywords": [
         "cmf",
         "zf2"
@@ -18,6 +18,7 @@
     "require": {
         "php": ">=5.3.3",
         "zendframework/zendframework": "dev-master",
+        "zf-commons/zfc-admin": "dev-master",
         "ensemble/kernel": "dev-master"
     },
     "autoload": {
