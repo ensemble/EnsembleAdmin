@@ -42,16 +42,14 @@
 return array(
     'router' => array(
         'routes' => array(
-            'admin' => array(
+            'zfcadmin' => array(
                 'type' => 'literal',
                 'options' => array(
-                    'route'    => '/admin',
                     'defaults' => array(
                         'controller' => 'Ensemble\Admin\Controller\AdminController',
                         'action'     => 'index',
                     ),
                 ),
-                'may_terminate' => true,
                 'child_routes' => array(
                     'page' => array(
                         'type' => 'literal',
