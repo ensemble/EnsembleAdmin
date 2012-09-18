@@ -141,9 +141,9 @@ class AdminUrl extends Url
         $params = $this->adminRouter->assemble($params, $options);
 
         if ('/' === $params) {
-            return $this->getView()->url('admin/page/open', array(), array(), true);
+            return $this->getView()->url('zfcadmin/page/open', array(), array(), true);
         } else {
-            return $this->getView()->url('admin/page/open/params', array('params' => $params), array(), true);
+            return $this->getView()->url('zfcadmin/page/open/params', array('params' => $params), array(), true);
         }
     }
 }
