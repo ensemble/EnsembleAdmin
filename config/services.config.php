@@ -48,7 +48,7 @@ return array(
 
         'Ensemble\Admin\Router\AdminRouter' => function ($sm) {
             $config = $sm->get('config');
-            $routes = $config['cmf_admin_routes'];
+            $routes = $config['ensemble_admin']['routes'];
 
             $router = new Router\AdminRouter($routes);
             return $router;
