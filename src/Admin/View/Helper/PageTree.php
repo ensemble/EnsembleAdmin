@@ -87,7 +87,7 @@ class PageTree extends AbstractHelper
 
     protected function parsePage(PageInterface $page)
     {
-        $title = $page->getMetaData()->getTitle();
+        $title = $page->getMetaData()->getShortTitle();
         $url   = $this->getView()->url('zfcadmin/page/open', array(
             'id' => $page->getId())
         );
